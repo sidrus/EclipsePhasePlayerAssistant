@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eclipse Phase Player Assistant</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class='navbar-inner nav-collapse' style="height: auto;">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <ul class="nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page One</a></li>
+        <li><a href="#">Page Two</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<header class="jumbotron masthead">
+  <h1>Eclipse Phase Player Assistant</h1>
+</header>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
