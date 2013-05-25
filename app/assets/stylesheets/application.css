@@ -12,35 +12,10 @@
  *= require_tree .
  */
 
-BODY {
-    background-color: #1A0F1D;
-    color: #C2A0B8;
-}
+
 
 .jumbotron {
     height: 282px;
-    color: #1A0F1D;
-    text-align: center;
     box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-    background: url("title.png") no-repeat center;
-}
-
-.jumbotron h1 {
-    font-size: 80px;
-    font-weight: bold;
-    letter-spacing: -1px;
-    line-height: 1;
-}
-
-/* Link styles (used on .masthead-links as well) */
-.jumbotron a {
-    color: #fff;
-    color: rgba(255,255,255,.5);
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-}
-.jumbotron a:hover {
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255,255,255,.25);
+    background: #000000 url("title.png") no-repeat center;
 }
