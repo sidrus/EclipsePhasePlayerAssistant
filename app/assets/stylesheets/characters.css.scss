@@ -1,3 +1,63 @@
 // Place all the styles related to the Characters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$content_bg:   #a37e97;
+$content_fg: #592e4f;
+
+$character_font_color: #5fe9ff;
+$money_value_font_color: #599b54;
+
+$inv_bg: #ba98b0;
+
+.tool_nav {
+  background-color: $inv_bg;
+  color: $content_fg;
+  padding-left: 3px;
+  border-radius: 5px;
+  text-align: center;
+
+  .btn {
+    width: 75px;
+  }
+}
+
+.inv_display {
+  background-color: $inv_bg;
+  color: $content_fg;
+  box-shadow: inset 1px 1px 3px rgb(45, 19, 38);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 5px;
+
+  .accordion-inner {
+    background-color: #d4d4d4;
+  }
+
+  .accordion-group {
+    background-color: #000000;
+  }
+
+  .accordion-heading {
+    a {width: 742px; }
+    background-color: #000000;
+    border-radius: 3px;
+  }
+
+}
+
+.character_name {
+  color: $character_font_color;
+  font-size: xx-large;
+  line-height: 75px;
+}
+
+.character_money {
+  text-align: right;
+  color: $character_font_color;
+  font-size: xx-large;
+  line-height: 75px;
+  .value {
+    color: #4c8647;
+  }
+}

@@ -1,5 +1,21 @@
 <div class="row-fluid">
-  <div>
-    <p class=""><%= @pc.name %></p>
+  <div class="row-fluid">
+    <div class="span8 character_name"><%= @pc.name %></div>
+    <div class="span4 character_money">Credits: <span class="character_money value"><%= number_to_currency(@pc.money) %></span></div>
+  </div>
+
+
+  <div class="row-fluid">
+    <div class="span2 tool_nav">
+      <%= render 'characters/layouts/tool_nav' %>
+    </div>
+    <div class="span10 inv_display">
+      <% if @tool == :inventory %>
+        <%= render 'characters/layouts/inventory' %>
+      <% else %>
+        <%= render 'characters/layouts/notes' %>
+      <% end %>
+    </div>
   </div>
 </div>
+

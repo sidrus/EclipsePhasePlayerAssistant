@@ -1,0 +1,19 @@
+<div class="accordion" id="inv_accordion">
+  <% @pc.items_by_group.each do |g, item_list| %>
+      <div class="accordion-group">
+
+        <div class="accordion-heading">
+          <%= link_to "#{g}", "#collapse_#{g.parameterize.underscore}", class: 'btn btn-inverse', data: { toggle: 'collapse', parent: '#inv_accordion'} %>
+        </div>
+
+        <div id="collapse_<%= g.parameterize.underscore %>" class="accordion-body collapse">
+          <% item_list.sort_by(&:name).each do |item| %>
+          <div class="accordion-inner">
+            <strong><%= item.name %></strong> (<%= item.category_name %> / <%= item.type_name %>)<br>
+            <span class="muted"><%= item.description %></span>
+          </div>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+</div>

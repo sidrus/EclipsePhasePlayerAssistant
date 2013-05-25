@@ -1,0 +1,3 @@
+<h4>Tools</h4>
+<p><%= link_to 'Inventory', character_inventory_url(@pc), class: "btn #{(@tool==:inventory) ? 'btn-info' : 'btn-inverse'}" %></p>
+<p><%= link_to 'Notes', character_notes_url(@pc), class: "btn #{(@tool==:notes) ? 'btn-info' : 'btn-inverse'}" %></p>
