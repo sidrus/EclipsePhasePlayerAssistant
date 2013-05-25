@@ -1,28 +1,72 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put}) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+    <div class="row-fluid">
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </div>
 
-  <div><%= f.label :display_name %><br />
-  <%= f.text_field :display_name %></div>
+    <div class="spacer-row-5px"></div>
+    <div class="row-fluid">
+      <%= f.label :display_name %>
+      <%= f.text_field :display_name %>
+    </div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></div>
+    <div class="spacer-row-5px"></div>
+    <div class="row-fluid">
+      <div class="span3">
+        <%= f.label :password %>
+        <%= f.password_field :password %><br />
+      </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+      <div class="span9">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <p class="text-info"><em>leave blank if you don't want to change it</em></p>
+    </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+    <hr />
+    <div class="row-fluid">
+      <div class="span8">
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password %><br />
+        <p class="text-info"><em>Your current password is required to confirm any changes.</em></p>
+      </div>
 
-  <div><%= f.submit "Update" %></div>
+      <div class="span1">
+        <%= f.submit "Update", class: "btn btn-info" %>
+      </div>
+      <div class="span3">
+        <a href="#modalDelAcct" role="button" class="btn btn-danger" data-toggle="modal">Cancel my account</a>
+      </div>
+    </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<div>
+  <p>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+  </p>
 
-<%= link_to "Back", :back %>
+  <!-- Modal -->
+  <div id="modalDelAcct" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalDelAcctLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Confirm Account Deletion</h3>
+    </div>
+    <div class="modal-body">
+      <p>
+        You are about to delete your user account.  <span class="label label-warning">Warning!</span> <span class="text-warning"> This will delete all data attached to your account (characters,
+      items, etc).</span>  Please confirm you wish to complete this action by clicking the 'Yes, delete my account' button.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">No, cancel this action</a>
+      <%= link_to 'Yes, delete my account', registration_path(resource_name), :class => "btn", :method => :delete %>
+    </div>
+  </div>
+</div>
