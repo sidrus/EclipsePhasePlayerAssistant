@@ -1,0 +1,52 @@
+/*
+ * This file exists to override some of the default bootstrap styles without editing the bootstrap source.
+ *
+ */
+
+$body_bg:   #1A0F1D;
+$body_font: #C2A0B8;
+
+$content_bg:   #4e2b4c;
+
+body {
+  background-color: $body_bg;
+  color: $body_font;
+  padding-top: 40px;
+}
+
+.jumbotron {
+  height: 282px;
+  box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+  background: #000000 url("title.png") no-repeat center;
+}
+
+.hero-unit {
+  background-color: $content_bg;
+}
+
+.alert {
+  background-color: $content_bg;
+  border-color: #8e538c;
+}
+.alert p {
+  color: $body_font;
+  text-shadow: none;
+  margin-bottom: 0px;
+}
+
+.table {
+  background-color: $content_bg;
+}
+
+/* General Utility Styles */
+.spacer-row-5px {
+  height: 5px;
+}
+
+.spacer-row-10px {
+  height: 10px;
+}
+
+.spacer-row-15px {
+  height: 15px;
+}

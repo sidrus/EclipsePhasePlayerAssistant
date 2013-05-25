@@ -1,0 +1,15 @@
+<div>
+  <%= form_for @character do |f| %>
+      <p>
+        <%= f.label :name, 'Character\'s name' %>
+        <%= f.text_field :name %>
+      </p>
+
+      <p>
+        <%= f.label :money, 'Starting Creds' %>
+        <%= f.text_field :money %>
+      </p>
+      <hr/>
+      <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>

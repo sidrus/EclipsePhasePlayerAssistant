@@ -1,9 +1,0 @@
-/*
- * This file exists to override some of the default bootstrap styles without editing the bootstrap source.
- *
- */
-body {
-    background-color: #1A0F1D;
-    color: #C2A0B8;
-}
-

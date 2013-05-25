@@ -1,0 +1,39 @@
+<div>
+  <% if current_user.characters.empty? %>
+    <div class="alert alert-info text-center">
+      <p>You haven't created any characters yet!</p>
+      <p><%= link_to 'Create One', new_character_url, class: "btn btn-large btn-primary" %></p>
+    </div>
+  <% else %>
+    <table class="table table-condensed">
+      <tbody>
+      <% current_user.characters.each do |c| %>
+        <tr>
+          <td><h4><%= c.name %></h4></td>
+          <td style="vertical-align: middle; text-align: right">
+            <%= link_to 'View', c, class: "btn btn-small" %>
+            <a href="#delCharacter" role="button" class="btn btn-small" data-toggle="modal">Delete</a>
+
+            <div id="delCharacter" class="modal hide fade text-left">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Confirm Delete</h3>
+              </div>
+              <div class="modal-body">
+                <p>
+                  <span class="label label-warning">Warning!</span> You are about to delete <%= c.name %>.
+                  <span class="text-warning"><strong>This action cannot be undone</strong></span>.  If you wish to continue with this operations, please select 'OK'.
+                </p>
+              </div>
+              <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                <%= link_to 'OK', c, class: "btn btn-primary", method: :delete %>
+              </div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
