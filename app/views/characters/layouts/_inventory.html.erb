@@ -1,3 +1,8 @@
+<% if @pc.items.empty? %>
+  <div class="text-center">
+    <h4>You have no items in your inventory.</h4>
+  </div>
+<% else %>
 <div class="accordion" id="inv_accordion">
   <% @pc.items_by_group.each do |g, item_list| %>
       <div class="accordion-group">
@@ -17,3 +22,4 @@
       </div>
   <% end %>
 </div>
+<% end %>
