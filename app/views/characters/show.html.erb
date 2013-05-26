@@ -1,7 +1,10 @@
 <div class="row-fluid">
   <div class="row-fluid">
-    <div class="span8 character_name"><%= @pc.name %></div>
-    <div class="span4 character_money">Credits: <span class="character_money value"><%= number_to_currency(@pc.money) %></span></div>
+    <div class="span7 character_name"><%= @pc.name %></div>
+    <div class="span5 character_money">
+      <a href="#modalAdjustMoney" role="button" class="btn btn-small" data-toggle="modal">Adjust</a>
+      Credits: <span class="character_money value"><%= number_to_currency(@pc.money) %></span>
+    </div>
   </div>
 
 
@@ -19,3 +22,26 @@
   </div>
 </div>
 
+<div id="modalAdjustMoney" class="modal hide fade">
+  <%= form_for @pc do |f| %>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Adjust Credits</h3>
+  </div>
+
+  <div class="modal-body">
+    <p>
+      Enter the amount to change your credits.  To reduce the value, enter a negative number.  To increase the value
+      enter a positive number.
+    </p>
+    <p>
+      <%= f.text_field :money, value: '' %>
+    </p>
+  </div>
+
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+  <% end %>
+</div>

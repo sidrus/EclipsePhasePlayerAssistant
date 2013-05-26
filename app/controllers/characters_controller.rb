@@ -30,6 +30,15 @@ class CharactersController < ApplicationController
     end
   end
 
+  def update
+    @pc = current_user.characters.find(params[:id])
+    redirect_to characters_url, error: "You can't adjust money for #{@pc.name}." if @pc.nil?
+
+    @pc.money += params[:character][:money].to_f
+    flash[:error] = "An error prevented the system from adjusting #{@pc.name}'s balance." if not @pc.save
+    redirect_to :back
+  end
+
   # This is really a 'sub-view' of Show.  Calling it in its own action to segregate some variables that only pertain
   # to this type of view
   def inventory
@@ -49,6 +58,13 @@ class CharactersController < ApplicationController
     @tool = :notes
 
     render :show
+  end
+
+  def adjust_money
+    @pc = current_user.characters.find(params[:id])
+    redirect_to characters_url, error: "You can't adjust money for #{@pc.name}." if @pc.nil?
+
+
   end
 
   def destroy

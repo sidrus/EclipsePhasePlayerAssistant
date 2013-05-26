@@ -6,4 +6,5 @@ EclipsePhasePlayerAssistant::Application.routes.draw do
   resources :characters
   get '/characters/:id/inventory' => 'characters#inventory', :as => 'character_inventory'
   get '/characters/:id/notes' => 'characters#notes', :as => 'character_notes'
+  put '/characters/:id/money/' => 'characters#adjust_money', :as => 'character_money'
 end
