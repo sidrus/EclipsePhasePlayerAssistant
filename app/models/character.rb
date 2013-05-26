@@ -1,5 +1,5 @@
 class Character < ActiveRecord::Base
-  attr_accessible :name, :money, :items
+  attr_accessible :name, :money, :items, :notes
 
   belongs_to :user
   has_and_belongs_to_many :items

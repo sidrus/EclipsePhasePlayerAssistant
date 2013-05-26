@@ -46,6 +46,15 @@ $inv_bg: #ba98b0;
 
 }
 
+.notes_display {
+  box-sizing: border-box;
+  text-align: center;
+  textarea {
+    width: 742px;
+    font-family: "Courier New";
+  }
+}
+
 .character_name {
   color: $character_font_color;
   font-size: xx-large;

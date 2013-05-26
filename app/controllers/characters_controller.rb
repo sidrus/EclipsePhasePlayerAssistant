@@ -32,10 +32,17 @@ class CharactersController < ApplicationController
 
   def update
     @pc = current_user.characters.find(params[:id])
-    redirect_to characters_url, error: "You can't adjust money for #{@pc.name}." if @pc.nil?
+    redirect_to characters_url, error: "You can't adjust any settings for #{@pc.name}." if @pc.nil?
 
-    @pc.money += params[:character][:money].to_f
-    flash[:error] = "An error prevented the system from adjusting #{@pc.name}'s balance." if not @pc.save
+    if defined? params[:character][:money] then
+      @pc.money += params[:character][:money].to_f
+    end
+
+    if defined? params[:character][:notes] then
+      @pc.notes = params[:character][:notes]
+    end
+
+    @pc.save
     redirect_to :back
   end
 
