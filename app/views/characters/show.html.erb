@@ -2,10 +2,12 @@
   <div class="row-fluid">
     <div class="span7 character_name"><%= @pc.name %></div>
     <div class="span5 character_money">
-      <a href="#modalAdjustMoney" role="button" class="btn btn-small" data-toggle="modal">Adjust</a>
+      <a href="#modalAdjustMoney" role="button" class="btn btn-small btn-info" data-toggle="modal">Adjust</a>
       Credits: <span class="character_money value"><%= number_to_currency(@pc.money) %></span>
     </div>
   </div>
+
+  <div class="spacer-row-15px"></div>
 
 
   <div class="row-fluid">

@@ -26,8 +26,7 @@ $inv_bg: #ba98b0;
   background-color: $inv_bg;
   color: $content_fg;
   box-shadow: inset 1px 1px 3px rgb(45, 19, 38);
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  border-radius: 5px;
   padding: 5px;
 
   .accordion-inner {
@@ -58,14 +57,14 @@ $inv_bg: #ba98b0;
 .character_name {
   color: $character_font_color;
   font-size: xx-large;
-  line-height: 75px;
+  line-height: 35px;
 }
 
 .character_money {
   text-align: right;
   color: $character_font_color;
   font-size: xx-large;
-  line-height: 75px;
+  line-height: 35px;
   .value {
     color: #4c8647;
   }
