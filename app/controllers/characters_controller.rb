@@ -7,9 +7,13 @@ class CharactersController < ApplicationController
 
   def show
     @pc = Character.find(params[:id])
-    unless current_user.characters.include?(@pc) then
-      redirect_to root_url
+
+    # set a default tool
+    if not defined? @tool then
+      @tool = :inventory
     end
+
+    redirect_to characters_url, error: 'You can only view characters you own' unless current_user.characters.include?(@pc)
   end
 
   def new
@@ -18,10 +22,15 @@ class CharactersController < ApplicationController
 
   def create
     @character = current_user.characters.build(params[:character])
-    redirect_to @character if @character.save or render :new, error: "Character creation failed."
+    if @character.save then
+      redirect_to character_inventory_url(@character)
+    else
+      flash[:error] = 'Character creation failed.'
+      render :new
+    end
   end
 
-  # This is really a sub-view of Show.  Calling it in its own action to segregate some variables that only pertain
+  # This is really a 'sub-view' of Show.  Calling it in its own action to segregate some variables that only pertain
   # to this type of view
   def inventory
     # Call the main 'show' implementation to get our base data loaded
