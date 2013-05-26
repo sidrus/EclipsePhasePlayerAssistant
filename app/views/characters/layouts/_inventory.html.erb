@@ -1,6 +1,9 @@
 <% if @pc.items.empty? %>
   <div class="text-center">
     <h4>You have no items in your inventory.</h4>
+    <div class="text-center">
+      <%= link_to 'Add Some Stuff!', new_character_item_url(@pc), class: 'btn btn-primary btn-large' %>
+    </div>
   </div>
 <% else %>
 <div class="accordion" id="inv_accordion">
@@ -13,9 +16,14 @@
 
         <div id="collapse_<%= g.parameterize.underscore %>" class="accordion-body collapse">
           <% item_list.sort_by(&:name).each do |item| %>
-          <div class="accordion-inner">
-            <strong><%= item.name %></strong> (<%= item.category_name %> / <%= item.type_name %>)<br>
-            <span class="muted"><%= item.description %></span>
+          <div class="accordion-inner row-fluid">
+            <div class="span9">
+              <strong><%= item.name %></strong> (<%= item.category_name %> / <%= item.type_name %>)<br>
+              <span class="muted"><%= item.description %></span>
+            </div>
+            <div class="span3 text-center">
+              <%= link_to 'Delete', destroy_character_item_url(item.id, @pc.id), method: :post, class: 'btn btn-small btn-info' %>
+            </div>
           </div>
           <% end %>
         </div>

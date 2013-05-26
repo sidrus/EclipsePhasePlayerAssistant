@@ -4,6 +4,8 @@ class Item < ActiveRecord::Base
   belongs_to :item_type
   has_and_belongs_to_many :characters
 
+  validates :name, :presence => true
+
   def type_name
     item_type.name
   end

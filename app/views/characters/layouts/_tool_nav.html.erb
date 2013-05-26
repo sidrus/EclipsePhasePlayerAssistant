@@ -1,3 +1,36 @@
-<h4>Tools</h4>
-<p><%= link_to 'Inventory', character_inventory_url(@pc), class: "btn #{(@tool==:inventory) ? 'btn-info' : 'btn-inverse'}" %></p>
+<p>
+  <div class="btn-group">
+    <%= link_to 'Inventory', character_inventory_url(@pc), class: "btn #{(@tool==:inventory) ? 'btn-info' : 'btn-inverse'}" %>
+    <button class="btn <%= (@tool==:inventory) ? 'btn-info' : 'btn-inverse' %> dropdown-toggle tool_caret" data-toggle="dropdown">
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><%= link_to 'Add Item...', new_character_item_url(@pc) %></li>
+      <li><%= link_to 'Clear Inventory', '#modalClearInv', data: { toggle: 'modal' } %></li>
+    </ul>
+  </div>
+</p>
+
 <p><%= link_to 'Notes', character_notes_url(@pc), class: "btn #{(@tool==:notes) ? 'btn-info' : 'btn-inverse'}" %></p>
+
+
+<div id="modalClearInv" class="modal hide fade">
+  <%= form_for @pc do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Clear Inventory</h3>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          You are about to remove all items from <%= @pc.name %>'s inventory.  <span class="label label-danger">This action cannot be undone.</span>
+          Press 'Yes, clear my inventory' to proceed.
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <%= link_to 'Yes, clear my inventory', clear_inventory_url(@pc), method: :post, class: 'btn btn-danger' %>
+      </div>
+  <% end %>
+</div>

@@ -13,12 +13,22 @@ $inv_bg: #ba98b0;
 .tool_nav {
   background-color: $inv_bg;
   color: $content_fg;
-  padding-left: 3px;
+  padding-left: 7px;
   border-radius: 5px;
-  text-align: center;
+
 
   .btn {
     width: 75px;
+  }
+
+  .btn.tool_caret {
+    width: auto;
+  }
+
+  .modal {
+    .btn {
+      width: auto;
+    }
   }
 }
 
