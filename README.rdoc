@@ -1,5 +1,8 @@
-== Eclipse Phase Player Assistant
+=== What is the Player Assistant?
+This is a web application which is designed to keep track of your game-play data.  You can track campaign notes, inventory items, and credit at the moment.  The item database is customizable and you can easily add new items to your inventory.
 
-The Eclipse Phase Player Assistant (EPPA) is a small web application designed
-to assist players with tracking information about their characters.  For more
-information on Eclipse Phase, visit http://eclipsephase.com/
+=== What is Eclipse Phase?
+Eclipse Phase is a pen and paper role-playing game set in a post-apocalyptic Sol-system.  For more information, visit: http://eclipsephase.com/
+
+=== Additional Features?
+I will continue to add features to this application.  Please feel free to fork the app and make additions of your own.  I look forward to some awesome pull requests!
