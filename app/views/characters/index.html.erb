@@ -9,7 +9,7 @@
       <tbody>
       <% current_user.characters.each do |c| %>
         <tr>
-          <td><h4><%= c.name %></h4></td>
+          <td><h4><%= c.name %> - <%= (c.campaign.nil?) ? 'None' : c.campaign %></h4></td>
           <td style="vertical-align: middle; text-align: right">
             <%= link_to 'View', c, class: "btn btn-small" %>
             <a href="#delCharacter" role="button" class="btn btn-small" data-toggle="modal">Delete</a>

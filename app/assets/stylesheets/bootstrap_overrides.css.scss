@@ -50,3 +50,35 @@ body {
 .spacer-row-15px {
   height: 15px;
 }
+
+.tooltip-inner {
+  background-color: #000000;
+  color: $body_font;
+  text-align: left;
+
+  border: 1px solid $body_font;
+}
+
+.tooltip.top {
+  .tooltip-arrow {
+    border-top-color: $body_font;
+  }
+}
+
+.tooltip.bottom {
+  .tooltip-arrow {
+    border-right-color: $body_font;
+  }
+}
+
+.tooltip.right {
+  .tooltip-arrow {
+    border-right-color: $body_font;
+  }
+}
+
+.tooltip.left {
+  .tooltip-arrow {
+    border-right-color: $body_font;
+  }
+}
