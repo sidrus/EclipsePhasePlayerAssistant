@@ -38,12 +38,17 @@ class CharactersController < ApplicationController
       @pc.money += params[:character][:money].to_f
     end
 
-    if defined? params[:character][:notes] then
+    if update_has_notes then
       @pc.notes = params[:character][:notes]
     end
 
     @pc.save
     redirect_to :back
+  end
+
+  def update_has_notes
+    defined? params[:character][:notes] and
+        !(params[:character][:notes].nil?)
   end
 
   # This is really a 'sub-view' of Show.  Calling it in its own action to segregate some variables that only pertain

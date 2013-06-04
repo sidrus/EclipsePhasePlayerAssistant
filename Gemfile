@@ -5,11 +5,14 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'dynamic_form'
 
-group :development do
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'simplecov'
   gem 'sqlite3'
 end
 
-group :production do
+group(:production) do
   gem 'pg'
 end
 
