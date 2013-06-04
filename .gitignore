@@ -16,3 +16,6 @@
 
 # Ignore RubyMine's folders
 /.idea
+
+# Ignore coverage data
+/coverage
